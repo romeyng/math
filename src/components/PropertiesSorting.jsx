@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, XCircle, Calculator, Sparkles, Info, ArrowRight } from 'lucide-react';
 
 const propertyDefs = {
-  "Commutative": { def: "Order does not matter.", details: "a + b = b + a \na × b = b × a" },
-  "Associative": { def: "Grouping does not change the result.", details: "(a + b) + c = a + (b + c)" },
-  "Distributive": { def: "Multiplies a single term across terms inside parentheses.", details: "a × (b + c) = (a × b) + (a × c)" },
-  "Identity": { def: "Leaves the number unchanged.", details: "a + 0 = a \na × 1 = a" },
-  "Inverse": { def: "Cancels a number to 0 or 1.", details: "a + (-a) = 0 \na × (1/a) = 1" },
-  "Undefined": { def: "No meaningful mathematical definition.", details: "e.g., Division by zero (12 ÷ 0)" }
+  "Commutative": { def: "Think 'commute' or move. Numbers can travel or swap places without changing the result.", details: "a + b = b + a" },
+  "Associative": { def: "Think 'associate' or group with friends. You can change how numbers group together.", details: "(a + b) + c = a + (b + c)" },
+  "Distributive": { def: "Think 'distribute' or hand out. You distribute the outside number to every value in the brackets.", details: "a × (b + c) = (a × b) + (a × c)" },
+  "Identity": { def: "Think 'identity' or looking in a mirror. The number keeps its original identity unchanged.", details: "a + 0 = a" },
+  "Inverse": { def: "Think 'inverse' or opposite/undo. An operation that undoes a number back to zero or one.", details: "a + (-a) = 0" },
+  "Undefined": { def: "Think 'undefined' or broken. The math breaks and has no definition, like dividing by zero.", details: "e.g., 12 ÷ 0" }
 };
 
 const statements = [

@@ -26,9 +26,9 @@ const problems = [
     ]
   },
   {
-    expression: "5 × 2² - 8",
+    expression: "5 × (12 ÷ 3) - 8",
     steps: [
-      { options: ["Multiplication (5 × 2)", "Orders / Exponents (2²)", "Subtraction (2 - 8)"], correctIndex: 1, trap: "Orders (Exponents) come right after Brackets!", htmlExpression: "5 × <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>4</span> - 8" },
+      { options: ["Multiplication (5 × 12)", "Brackets (12 ÷ 3)", "Subtraction (3 - 8)"], correctIndex: 1, trap: "Brackets always come first!", htmlExpression: "5 × <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>4</span> - 8" },
       { options: ["Multiplication (5 × 4)", "Subtraction (4 - 8)"], correctIndex: 0, trap: "Multiplication comes before Subtraction.", htmlExpression: "<span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>20</span> - 8" },
       { options: ["Subtraction (20 - 8)", "Addition (20 + 8)"], correctIndex: 0, trap: "Subtract!", htmlExpression: "<span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>12</span>" }
     ]
@@ -81,22 +81,20 @@ const problems = [
     ]
   },
   {
-    expression: "36 ÷ (12 - 3 × 2) + 4² × 2",
+    expression: "36 ÷ (12 - 3 × 2) + 16 × 2",
     steps: [
-      { options: ["Division (36 ÷ 12)", "Brackets Subtraction (12 - 3)", "Brackets Multiplication (3 × 2)"], correctIndex: 2, trap: "Inside the brackets, multiplication comes before subtraction!", htmlExpression: "36 ÷ (12 - <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>6</span>) + 4² × 2" },
-      { options: ["Division (36 ÷ 12)", "Brackets Subtraction (12 - 6)", "Exponents (4²)"], correctIndex: 1, trap: "Finish solving the entire bracket first!", htmlExpression: "36 ÷ <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>6</span> + 4² × 2" },
-      { options: ["Division (36 ÷ 6)", "Exponents (4²)", "Multiplication (4² × 2)"], correctIndex: 1, trap: "Exponents (Orders) come before Division and Multiplication!", htmlExpression: "36 ÷ 6 + <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>16</span> × 2" },
+      { options: ["Division (36 ÷ 12)", "Brackets Subtraction (12 - 3)", "Brackets Multiplication (3 × 2)"], correctIndex: 2, trap: "Inside the brackets, multiplication comes before subtraction!", htmlExpression: "36 ÷ (12 - <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>6</span>) + 16 × 2" },
+      { options: ["Division (36 ÷ 12)", "Brackets Subtraction (12 - 6)", "Multiplication (16 × 2)"], correctIndex: 1, trap: "Finish solving the entire bracket first!", htmlExpression: "36 ÷ <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>6</span> + 16 × 2" },
       { options: ["Division (36 ÷ 6)", "Addition (6 + 16)", "Multiplication (16 × 2)"], correctIndex: 0, trap: "Division and Multiplication are equal priority, process Left-to-Right!", htmlExpression: "<span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>6</span> + 16 × 2" },
       { options: ["Addition (6 + 16)", "Multiplication (16 × 2)"], correctIndex: 1, trap: "Multiplication comes before addition!", htmlExpression: "6 + <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>32</span>" },
       { options: ["Addition (6 + 32)", "Subtraction (32 - 6)"], correctIndex: 0, trap: "Final step is addition.", htmlExpression: "<span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>38</span>" }
     ]
   },
   {
-    expression: "100 - (50 + 2) ÷ 2 + 3 × (4² - 6)",
+    expression: "100 - (50 + 2) ÷ 2 + 3 × (16 - 6)",
     steps: [
-      { options: ["Left Brackets (50 + 2)", "Right Brackets Exponent (4²)", "Right Brackets Subtraction (4 - 6)"], correctIndex: 0, trap: "Both brackets can be solved, but solving the left one first is standard Left-to-Right.", htmlExpression: "100 - <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>52</span> ÷ 2 + 3 × (4² - 6)" },
-      { options: ["Division (52 ÷ 2)", "Right Brackets Exponent (4²)", "Right Brackets Subtraction (4² - 6)"], correctIndex: 1, trap: "Must finish the remaining brackets, and exponents go first inside!", htmlExpression: "100 - 52 ÷ 2 + 3 × (<span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>16</span> - 6)" },
-      { options: ["Subtraction (100 - 52)", "Division (52 ÷ 2)", "Right Brackets Subtraction (16 - 6)"], correctIndex: 2, trap: "Finish the brackets before doing outside division!", htmlExpression: "100 - 52 ÷ 2 + 3 × <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>10</span>" },
+      { options: ["Left Brackets (50 + 2)", "Right Brackets (16 - 6)", "Division (2 ÷ 2)"], correctIndex: 0, trap: "Both brackets can be solved, but solving the left one first is standard Left-to-Right.", htmlExpression: "100 - <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>52</span> ÷ 2 + 3 × (16 - 6)" },
+      { options: ["Division (52 ÷ 2)", "Right Brackets (16 - 6)", "Multiplication (3 × 16)"], correctIndex: 1, trap: "Must finish the remaining brackets!", htmlExpression: "100 - 52 ÷ 2 + 3 × <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>10</span>" },
       { options: ["Subtraction (100 - 52)", "Division (52 ÷ 2)", "Multiplication (3 × 10)"], correctIndex: 1, trap: "Division and Multiplication are equal priority, process Left-to-Right!", htmlExpression: "100 - <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>26</span> + 3 × 10" },
       { options: ["Subtraction (100 - 26)", "Addition (26 + 3)", "Multiplication (3 × 10)"], correctIndex: 2, trap: "Multiplication comes before addition or subtraction!", htmlExpression: "100 - 26 + <span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>30</span>" },
       { options: ["Subtraction (100 - 26)", "Addition (26 + 30)"], correctIndex: 0, trap: "Addition and Subtraction are equal priority. Must process Left-to-Right!", htmlExpression: "<span class='text-emerald-400 font-black drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]'>74</span> + 30" },
